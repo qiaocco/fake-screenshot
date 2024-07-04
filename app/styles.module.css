@@ -54,20 +54,36 @@
     display: block;
 }
 
-.left select {
+.left select,
+.left textarea,
+.left input {
     padding: 8px;
-    border-radius: 4px;
-    width: 100%;
     margin-bottom: 16px;
+    width: 100%;
+}
+
+.left select {
+    border-radius: 4px;
     border: 1px solid rgb(229, 231, 235);
 }
 
 .left textarea {
-    width: 100%;
-    margin-bottom: 16px;
     border: 1px solid rgb(229, 231, 235);
-    padding: 8px;
 }
+
+.left input {
+    background-color: rgb(59 130 246);
+}
+
+.formFont {
+    display: flex;
+    align-items: center;
+}
+
+.left span {
+    margin-left: 16px;
+}
+
 
 .left button {
     width: 96px;
@@ -76,11 +92,6 @@
     border-radius: 4px;
     padding: 8px 16px;
     background-color: rgb(59 130 246);
-}
-
-
-.right {
-    /* background-color: orange; */
 }
 
 
