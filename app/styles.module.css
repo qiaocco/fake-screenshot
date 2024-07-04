@@ -1,0 +1,87 @@
+
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+
+/* region头部*/
+.pageHeader {
+    background-color: rgb(59 130 246);
+    padding: 40px;
+    height: 188px;
+    margin: auto;
+    text-align: center;
+    color: white;
+    display: block;
+
+}
+
+.firstTitle {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-bottom: 40px;
+}
+
+.secondTitle {
+    font-size: 20px;
+}
+
+/* endregion头部*/
+
+/* region主要内容 */
+.content {
+    display: flex;
+    background-color: white;
+}
+
+.left, .right {
+    width: 512px;
+    border-radius: 4px;
+}
+
+.left {
+    padding: 24px;
+}
+
+
+.left label {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 28px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.left select {
+    padding: 8px;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 16px;
+    border: 1px solid rgb(229, 231, 235);
+}
+
+.left textarea {
+    width: 100%;
+    margin-bottom: 16px;
+    border: 1px solid rgb(229, 231, 235);
+    padding: 8px;
+}
+
+.left button {
+    width: 96px;
+    height: 40px;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    background-color: rgb(59 130 246);
+}
+
+
+.right {
+    /* background-color: orange; */
+}
+
+
+/* endregion主要内容 */
