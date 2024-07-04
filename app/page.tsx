@@ -1,27 +1,26 @@
 "use client"
 
 import styles from './styles.module.css'
-import {useEffect, useRef, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 import {renderCanvas} from "@/app/utils/renderCanvas";
 
 export default function Home() {
     const quotes = ['世界上没有什么事是一顿烧烤不能解决的\n如果有\n那就两顿'];
     const [content, setContent] = useState(quotes[0])
-    const [hero, setHero] = useState("/assets/赵四.jpg")
-    // const canvasRef = useRef();
+    const [image, setImage] = useState("/assets/赵四.jpg")
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const handleHero = (e: any) => {
+    const handleHeroChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         console.log("handleHero:", e.target.value)
-        setHero(e.target.value)
+        setImage(e.target.value)
     }
 
-    const handleRenderCanvas = (text: string) => {
-        renderCanvas(canvasRef.current, content, hero, "Arial", 24, false);
-    }
+    const handleRenderCanvas = useCallback(() => {
+        renderCanvas(canvasRef.current, content, image, "Arial", 24, false);
+    }, [image, content])
 
     useEffect(() => {
-        handleRenderCanvas(content);
-    }, [hero, content]);
+        handleRenderCanvas();
+    }, [image, content, handleRenderCanvas]);
 
     return (
         <div className={styles.container}>
@@ -36,7 +35,7 @@ export default function Home() {
                         name="hero"
                         id="hero"
                         className={styles.selectHero}
-                        onChange={handleHero}
+                        onChange={handleHeroChange}
                     >
                         <option value="/assets/赵四.jpg">赵四</option>
                         <option value="/assets/刘能.jpg">刘能</option>
