@@ -1,5 +1,6 @@
 "use client"
 
+import styles from './styles.module.css'
 import React, {useCallback, useEffect, useRef, useState} from "react";
 import {renderCanvas} from "@/app/utils/renderCanvas";
 
@@ -37,21 +38,18 @@ export default function Home() {
         link.click()
     }
     return (
-        <div className="mx-auto max-w-5xl min-w-fit">
-            {/*头部*/}
-            <header className="h-188 bg-blue-500 p-40px text-center text-white">
-                <h1 className="text-4xl mb-10 font-bold">字幕截图生成器</h1>
-                <h2 className="text-xl">“都有截图了一定是真的”</h2>
+        <div className={styles.container}>
+            <header className={styles.pageHeader}>
+                <h1 className={styles.firstTitle}>字幕截图生成器</h1>
+                <h2 className={styles.secondTitle}>“都有截图了一定是真的”</h2>
             </header>
-            {/*内容区*/}
-            <main className="flex bg-white">
-                {/*表单区*/}
-                <form className="w-1/2 rounded p-6">
-                    <label className="text-lg font-bold block mb-2" htmlFor="hero">选择英雄</label>
+            <main className={styles.content}>
+                <form className={styles.left}>
+                    <label htmlFor="hero" className={styles.fieldTitle}>选择英雄</label>
                     <select
                         name="hero"
                         id="hero"
-                        className="w-full border-2 border-solid border-gray-200 rounded p-2 mb-2"
+                        className={styles.selectHero}
                         onChange={handleHeroChange}
                     >
                         <option value="/assets/赵四.jpg">赵四</option>
@@ -66,29 +64,25 @@ export default function Home() {
                         <option value="/assets/杨澜.jpg">杨澜</option>
                         <option value="/assets/于丹.jpg">于丹</option>
                     </select>
-                    <label className="text-lg font-bold block mb-2" htmlFor="content">台词（一排不要太长了）</label>
+                    <label htmlFor="content" className={styles.fieldTitle}>台词（一排不要太长了）</label>
                     <textarea
                         name="content"
-                        className="w-full border-2 border-solid border-gray-200 rounded p-2 mb-2"
+                        className={styles.formContent}
                         placeholder={quotes[0]}
                         value={content}
                         onChange={(e) => setContent(e.target.value)} rows={8} id="content"
                     />
-                    <label className="text-lg font-bold block mb-2 " htmlFor="font-size">字体大小</label>
-                    <div className="flex items-center mb-4">
+                    <label htmlFor="font-size">字体大小</label>
+                    <div className={styles.formFont}>
                         <input type="range" id="font-size" name="font-size" min="12" max="48" step="1"
                                value={fontSize}
-                               className="w-full"
                                onChange={handleFontSize}
                         />
-                        <span className="ml-4">{fontSize}px</span>
+                        <span>{fontSize}px</span>
                     </div>
-                    <button className="w-24 h-10 bg-blue-500 text-white rounded px-4 py-2"
-                            onClick={handleSaveImage}>保存图片
-                    </button>
+                    <button className={styles.formButton} onClick={handleSaveImage}>保存图片</button>
                 </form>
-                {/*图片区*/}
-                <div className="w-1/2 rounded">
+                <div className={styles.right}>
                     <canvas ref={canvasRef} className="w-full h-auto border rounded"></canvas>
                 </div>
             </main>
