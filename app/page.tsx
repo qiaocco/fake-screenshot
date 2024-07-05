@@ -12,11 +12,9 @@ export default function Home() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     const handleHeroChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        console.log("handleHero:", e.target.value)
         setImage(e.target.value)
     }
     const handleFontSize = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log("handleFontSize: ", e.target.value)
         setFontSize(Number(e.target.value))
     }
 
