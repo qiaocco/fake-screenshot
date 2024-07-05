@@ -25,6 +25,20 @@ export default function Home() {
         handleRenderCanvas();
     }, [image, content, fontSize, handleRenderCanvas]);
 
+    const handleUpload = (e: any) => {
+        const file = e.target.files[0]
+        if (!file) {
+            console.error("no file selected")
+            return
+        }
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = (e) => {
+            const dataURL = e.target?.result;
+            console.log(dataURL)
+            setImage(dataURL as string);
+        }
+    }
     const handleSaveImage = (e: any) => {
         e.preventDefault()
         const canvas = canvasRef.current;
@@ -39,7 +53,7 @@ export default function Home() {
     return (
         <div className="mx-auto max-w-5xl min-w-fit">
             {/*头部*/}
-            <header className="h-188 bg-blue-500 p-40px text-center text-white">
+            <header className="bg-blue-500 p-10 text-center text-white">
                 <h1 className="text-4xl mb-10 font-bold">字幕截图生成器</h1>
                 <h2 className="text-xl">“都有截图了一定是真的”</h2>
             </header>
@@ -66,6 +80,9 @@ export default function Home() {
                         <option value="/assets/杨澜.jpg">杨澜</option>
                         <option value="/assets/于丹.jpg">于丹</option>
                     </select>
+                    <label className="text-lg font-bold block mb-2 bg-blue-500 p-2 rounded text-white"
+                           htmlFor="upload">上传本地英雄</label>
+                    <input className="" type="file" id="upload" hidden onChange={handleUpload} name="upload"/>
                     <label className="text-lg font-bold block mb-2" htmlFor="content">台词（一排不要太长了）</label>
                     <textarea
                         name="content"
