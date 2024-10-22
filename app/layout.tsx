@@ -18,7 +18,7 @@ export default function RootLayout({
         <html lang="en">
         <body>
         {children}
-        <Script defer src="https://umami.qiaocc.me/script.js"
+        <Script defer src="https://umami.ichase.cc/script.js"
                 data-website-id="7c2c9f7e-8a72-4384-9473-9e1fffe979ad"></Script>
         <Analytics/>
         <SpeedInsights/>
