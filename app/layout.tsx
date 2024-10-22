@@ -18,8 +18,8 @@ export default function RootLayout({
         <html lang="en">
         <body>
         {children}
-        <Script defer src="https://cloud.umami.is/script.js"
-                data-website-id="d4a7f87d-cea3-40b2-aa7f-e44b95d13a5a"></Script>
+        <Script defer src="https://umami.qiaocc.me/script.js"
+                data-website-id="7c2c9f7e-8a72-4384-9473-9e1fffe979ad"></Script>
         <Analytics/>
         <SpeedInsights/>
         </body>
